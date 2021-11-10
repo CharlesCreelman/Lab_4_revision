@@ -12,6 +12,9 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
+unsigned int int_part;
+unsigned int frac_part;
+
 void main(void) {
     LCD_Init();  
     ADC_init();
@@ -25,8 +28,9 @@ void main(void) {
     
     while (1) {
         
-        x = ADC_getval();
-        sprintf(buf,"x = %d",x);
+        int_part=ADC_getval()/77; // i.e. 255 / 5V = 51
+        frac_part=(ADC_getval()*100)/77 - int_part*100;
+        sprintf(buf,"%d.%02d",int_part,frac_part);
         LCD_sendstring(buf);
         
         __delay_ms(100);
