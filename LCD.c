@@ -3,6 +3,8 @@
 
 unsigned int highbits;
 unsigned int lowbits;
+unsigned int int_part;
+unsigned int frac_part;
 
 //Define easy to remember variable names to pin outputs.
 #define RS LATCbits.LATC6
@@ -152,7 +154,7 @@ void LCD_sendstring(char *string)
     }
     //When count passes 16 scroll the screen using LCD_scroll()
     unsigned int i = 0;
-    for (i=0; i<(count-16); i++) {LCD_scroll();}
+    //for (i=0; i<(count-16); i++) {LCD_scroll();}
 }
 
 /************************************
@@ -164,14 +166,4 @@ void LCD_scroll(void)
     __delay_ms(300); //Enough delay to read text moving along
     LCD_sendbyte(0b00011000, 0);
     __delay_us(50);
-}
-
-/************************************
- * Function takes a ADC value and works out the voltage to 2 dp
- * the result is stored in buf as ascii text ready for display on LCD
- * Note result is stored in a buffer using pointers, it is not sent to the LCD
-************************************/
-void ADC2String(char *buf, unsigned int ADC_val){
-	//code to calculate the inegeter and fractions part of a ADC value
-	// and format as a string using sprintf (see GitHub readme)
 }

@@ -14,12 +14,26 @@
 
 void main(void) {
     LCD_Init();  
+    ADC_init();
+    char buf[10];
+    int x=0;
+    
 	
 	LCD_setline(1); //Set Line 1
     
-    LCD_sendstring("Hello world how are you today?");  //Send string Hello to line 1
-
+    //LCD_sendstring("Hello world how are you today?");  //Send string Hello to line 1
+    
     while (1) {
+        
+        x = ADC_getval();
+        sprintf(buf,"x = %d",x);
+        LCD_sendstring(buf);
+        
+        __delay_ms(100);
+        
+        LCD_sendbyte(0b00000001, 0);
+        
+        __delay_ms(100);
     }
 }
 
