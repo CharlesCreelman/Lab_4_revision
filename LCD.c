@@ -161,7 +161,7 @@ void LCD_sendstring(char *string)
 void LCD_scroll(void)
 {
 	//code here to scroll the text on the LCD screen
-    __delay_ms(700); //Enough delay to read text moving along
+    __delay_ms(300); //Enough delay to read text moving along
     LCD_sendbyte(0b00011000, 0);
     __delay_us(50);
 }

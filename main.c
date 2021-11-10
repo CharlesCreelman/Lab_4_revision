@@ -8,6 +8,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include "LCD.h"
+#include "ADC.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -16,7 +17,7 @@ void main(void) {
 	
 	LCD_setline(1); //Set Line 1
     
-    LCD_sendstring("Hello World!  How are you doing?");  //Send string Hello to line 1
+    LCD_sendstring("Hello world how are you today?");  //Send string Hello to line 1
 
     while (1) {
     }
