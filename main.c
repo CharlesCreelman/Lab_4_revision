@@ -15,6 +15,7 @@ void main(void) {
     LCD_Init();  
 	
 	LCD_setline(1); //Set Line 1
+    
 	LCD_sendbyte(0x48,1); //H
 	LCD_sendbyte(0x65,1); //E
 	LCD_sendbyte(0x6C,1); //L	
@@ -29,7 +30,6 @@ void main(void) {
 	LCD_sendbyte(0x21,1); //!
 
     while (1) {
-
     }
 }
 
