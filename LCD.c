@@ -142,11 +142,17 @@ void LCD_setline (char line)
 void LCD_sendstring(char *string)
 {
 	//code here to send a string to LCD using pointers and LCD_sendbyte function
+    
+    unsigned int count = 0;
+    
     //Count through each letter of the string using pointer and display each letter.
     while(*string != 0){
         LCD_sendbyte(*string++, 1);
-
+        count++;
     }
+    //When count passes 16 scroll the screen using LCD_scroll()
+    unsigned int i = 0;
+    for (i=0; i<(count-16); i++) {LCD_scroll();}
 }
 
 /************************************
@@ -155,6 +161,9 @@ void LCD_sendstring(char *string)
 void LCD_scroll(void)
 {
 	//code here to scroll the text on the LCD screen
+    __delay_ms(700); //Enough delay to read text moving along
+    LCD_sendbyte(0b00011000, 0);
+    __delay_us(50);
 }
 
 /************************************
