@@ -154,7 +154,7 @@ void LCD_sendstring(char *string)
     }
     //When count passes 16 scroll the screen using LCD_scroll()
     unsigned int i = 0;
-    //for (i=0; i<(count-16); i++) {LCD_scroll();}
+    for (i=0; i<(count-16); i++) {LCD_scroll();}
 }
 
 /************************************
