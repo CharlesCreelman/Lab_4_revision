@@ -16,7 +16,11 @@ void main(void) {
 	
 	LCD_setline(1); //Set Line 1
     
-    LCD_sendstring("Hello World!");  //Send string Hello World
+    LCD_sendstring("Hello");  //Send string Hello to line 1
+    
+    LCD_setline(2); //Set Line 2
+    
+    LCD_sendstring("World!");  //Send string World! to line 2
 
     while (1) {
     }
