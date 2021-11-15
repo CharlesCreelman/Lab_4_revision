@@ -8,25 +8,28 @@
 #include <xc.h>
 #include <stdio.h>
 #include "LCD.h"
-#include "ADC.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-unsigned int int_part;
-unsigned int frac_part;
-
 void main(void) {
     LCD_Init();  
-    char buf[10];
-    int x=0;
-    
 	
-	LCD_setline(1); //Set Line 1 
-    LCD_sendstring(" =^..^=    =^..^=   =^..^=   =^..^=   =^..^=  ");
-    
-    //LCD_sendstring("Hello world how are you today?");  //Send string Hello to line 1
-    
+	LCD_setline(1); //Set Line 1
+	LCD_sendbyte(0x48,1); //H
+	LCD_sendbyte(0x65,1); //E
+	LCD_sendbyte(0x6C,1); //L	
+	LCD_sendbyte(0x6C,1); //L
+	LCD_sendbyte(0x6F,1); //O
+	LCD_sendbyte(0x20,1); //(space)
+	LCD_sendbyte(0x57,1); //W
+	LCD_sendbyte(0x6F,1); //O
+	LCD_sendbyte(0x72,1); //R
+	LCD_sendbyte(0x6C,1); //L 
+	LCD_sendbyte(0x64,1); //D
+	LCD_sendbyte(0x21,1); //!
+
     while (1) {
+
     }
 }
 
